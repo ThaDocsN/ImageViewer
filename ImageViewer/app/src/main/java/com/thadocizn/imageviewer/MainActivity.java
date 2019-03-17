@@ -45,7 +45,9 @@ public class MainActivity extends AppCompatActivity {
             if (requestCode == IMAGE_REQUEST_CODE) {
                 String uri = data.getData().toString();
 
+                //todo add imagtes to emulator
                 ImageData imageData = new ImageData("image", uri);
+                imageList = new ArrayList<>();
                 imageList.add(imageData);
 
                 TextView textView = generateTextView(uri, imageList.indexOf(imageData));
