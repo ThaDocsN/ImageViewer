@@ -9,7 +9,7 @@ public class ImageData implements Serializable {
     private String name;
     private String uri;
 
-    public ImageData(String name, Uri uri) {
+    public ImageData(String name, String uri) {
         this.name = name;
         this.uri = uri.toString();
     }
