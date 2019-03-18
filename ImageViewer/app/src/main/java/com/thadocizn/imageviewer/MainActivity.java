@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(activity_main);
 
         linearLayout = findViewById(R.id.parentLayout);
-        linearLayout.addView(generateTextView("Charles", 1));
 
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
