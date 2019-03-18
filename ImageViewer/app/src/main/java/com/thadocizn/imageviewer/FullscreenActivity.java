@@ -87,14 +87,6 @@ public class FullscreenActivity extends AppCompatActivity {
     };
 
     @Override
-    protected void onResume() {
-        super.onResume();
-        Intent intent = getIntent();
-        ImageData uri = (ImageData) intent.getSerializableExtra("uri");
-
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -129,6 +121,14 @@ public class FullscreenActivity extends AppCompatActivity {
         delayedHide(100);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Intent intent = getIntent();
+        ImageData image = (ImageData) intent.getSerializableExtra("image");
+
+        mContentView.setImageURI(image.getUri());
+    }
     private void toggle() {
         if (mVisible) {
             hide();
