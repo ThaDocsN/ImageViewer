@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
             if (requestCode == IMAGE_REQUEST_CODE) {
                 String uri = data.getData().toString();
 
-                //todo add imagtes to emulator
+                //todo add images to emulator
                 ImageData imageData = new ImageData("image", uri);
                 imageList = new ArrayList<>();
                 imageList.add(imageData);
@@ -57,12 +57,20 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public TextView generateTextView(String text, int position) {
+    public TextView generateTextView(String text, final int position) {
         TextView textView = new TextView(this);
         textView.setTextSize(18);
         textView.setId(position);
         textView.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
         textView.setText(text);
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ImageData data = imageList.get(position);
+                Intent intent = new Intent();
+                intent.putExtra("image", data);
+            }
+        });
         return textView;
     }
 }
