@@ -66,8 +66,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ImageData data = imageList.get(position);
-                Intent intent = new Intent();
+                Intent intent = new Intent(getApplicationContext(), FullscreenActivity.class);
                 intent.putExtra("image", data);
+                startActivity(intent);
             }
         });
         return textView;

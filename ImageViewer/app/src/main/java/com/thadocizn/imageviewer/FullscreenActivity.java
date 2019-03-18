@@ -1,10 +1,12 @@
 package com.thadocizn.imageviewer;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -46,7 +48,7 @@ public class FullscreenActivity extends AppCompatActivity {
             return false;
         }
     };
-    private View mContentView;
+    private ImageView mContentView;
     private final Runnable mHidePart2Runnable = new Runnable() {
         @SuppressLint("InlinedApi")
         @Override
@@ -83,6 +85,14 @@ public class FullscreenActivity extends AppCompatActivity {
             hide();
         }
     };
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Intent intent = getIntent();
+        ImageData uri = (ImageData) intent.getSerializableExtra("uri");
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
